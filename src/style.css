@@ -1,0 +1,44 @@
+
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+/* กำหนดสีและฟอนต์*/
+@theme {
+  --font-kanit: 'Kanit', sans-serif;
+  --color-brand-orange: #ff6600; /*กำหนดให้ brand-orange คือสีส้ม*/
+}
+
+/* styles หลัก ให้ทั้งหน้าที่อยู่ใน Body ใช้ฟอนต์ Kanis*/
+@layer base {
+  body {
+    font-family: var(--font-kanit);
+        @apply bg-white text-gray-800;
+  }
+}
+
+/* ตั้งค่า แท็ก */
+@layer components {
+  /*ซ่อน section*/
+  .hidden-page { 
+    display: none !important; 
+  }
+
+  .fade-in { 
+    animation: fadeIn 0.4s ease-in-out; 
+  }
+
+  .nav-link {
+    @apply cursor-pointer transition-colors duration-200 hover:text-brand-orange; /*เวลาชี้แล้วเมาส์เป็นนิ้วชี้ และเมื่อจิ้มจะเปลี่ยนสี*/
+  }
+  
+  .nav-link-active {
+    @apply text-brand-orange font-bold; /*สร้างลิ้ง Nav*/
+  }
+
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

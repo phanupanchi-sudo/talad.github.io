@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แบบฟอร์มโปรโมชั่น</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+   
+    body {
+        font-family: 'Kanit', sans-serif;
+        background-color: #f3f4f6; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .form-container {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 500px; 
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        margin: 20px;
+    }
+
+    h2 {
+        color: #d2691e;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+        font-weight: 600;
+        position: relative;
+    }
+    
+    h2::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: #d2691e;
+        margin: 10px auto 0;
+        border-radius: 2px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block; 
+        margin-bottom: 8px;
+        color: #374151;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+        width: 100%; 
+        padding: 12px 15px;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        font-family: 'Kanit', sans-serif;
+        font-size: 15px;
+        box-sizing: border-box; 
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    input:focus, textarea:focus {
+        border-color: #d2691e;
+        box-shadow: 0 0 0 4px rgba(210, 105, 30, 0.1);
+    }
+
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 14px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        font-family: 'Kanit', sans-serif;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        margin-top: 10px;
+        box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+    }
+
+    button[type="submit"]:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
+    
+    button[type="submit"]:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    ::placeholder {
+        color: #9ca3af;
+    }
+</style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>กรอกข้อมูลโปรโมชั่น</h2>
+
+        <form onsubmit="savePromotion(event)">
+            
+            <div class="form-group">
+                <label for="shopName">ชื่อร้าน</label>
+                <input type="text" id="shopName" placeholder="ระบุชื่อร้าน" required>
+            </div>
+
+            <div class="form-group">
+                <label for="shopPhone">เบอร์โทรติดต่อ</label>
+                <input type="tel" id="shopPhone" placeholder="08x-xxx-xxxx">
+            </div>
+
+            <div class="form-group">
+                <label for="shopEmail">อีเมล</label>
+                <input type="email" id="shopEmail" placeholder="@mail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="shopDetail">รายละเอียดโปรโมชั่น</label>
+                <textarea id="shopDetail" rows="5" placeholder="พิมพ์รายละเอียดโปรโมชั่น..." required></textarea>
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-medium mb-2">รูปภาพโปรโมชั่น (1 รูป)</label>
+                <input type="file" id="shopImage" accept="image/*"class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#d2691e] focus:ring-4 focus:ring-[#d2691e]/10 outline-none transition duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#d2691e]/10 file:text-[#d2691e] hover:file:bg-[#d2691e]/20">
+                  <p class="text-xs text-gray-400 mt-1">*รองรับไฟล์ .jpg, .png ขนาดไม่เกิน 5MB</p>
+            </div>
+            
+            <button type="submit" id="btnSubmit">ส่งข้อมูล</button>
+        </form>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>
